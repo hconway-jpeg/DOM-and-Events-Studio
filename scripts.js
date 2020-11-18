@@ -9,6 +9,7 @@ window.addEventListener("load", function() {
         abortMissionButton = document.getElementById("missionAbort");
         shuttleStatus = document.getElementById("flightStatus");
         shuttleBackgroundColor = document.getElementById("shuttleBackground");
+        shuttleHeight = document.getElementById("spaceShuttleHeight");
 
     function takingOff() {
         let response = window.confirm("Confirm that the shuttle  is ready for takeoff.");
@@ -19,6 +20,9 @@ window.addEventListener("load", function() {
             //#shuttleBackground = blue;
             shuttleBackgroundColor.style.background = "blue";           
             //shuttle height = 10,000 miles;
+            shuttleHeight.innerHTML = 10000;
+
+
         }
     };
         takeOffButton.addEventListener("click" , takingOff);
