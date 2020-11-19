@@ -15,6 +15,9 @@ window.addEventListener("load", function() {
         downButton = document.getElementById("down");
         leftButton = document.getElementById("left");
         rightButton = document.getElementById("right");
+        rocketImage.style.position = "absolute";
+        rocketImage.style.bottom = "0px";
+        rocketImage.style.left = "0px";
 
     function takingOff() {
         let response = window.confirm("Confirm that the shuttle  is ready for takeoff.");
@@ -55,45 +58,24 @@ window.addEventListener("load", function() {
     };
         abortMissionButton.addEventListener("click", abortingMission);
 
-    function moveRocket(str) {
-        let step = 10;
-        switch(str) {
-        
-            case "Up":
-                console.log('testing Up');
-                var x = rocketImage.offsetBottom;
-                x = x + step;
-                rocketImage.style.bottom= x + "px";
-            break;
+      
+    upButton.addEventListener("click", function() {
+        shuttleHeight.innerHTML = parseInt(shuttleHeight.innerHTML) + 10000;
+        rocketImage.style.bottom = parseInt(rocketImage.style.bottom) + 10 + "px";
+        });
 
-            case "down":
-                console.log("testing down");
-                var x = rocketImage.offsetTop;
-                x = x + step;
-                rocketImage.style.top= x + "px";
-            break;
+    downButton.addEventListener("click", function() {
+        shuttleHeight.innerHTML = parseInt(shuttleHeight.innerHTML) - 10000;
+        rocketImage.style.bottom = parseInt(rocketImage.style.bottom) - 10 + "px";
+    });
 
-            case "left":
-                console.log("testing left");
-                var x = rocketImage.offsetRight;
-                x = x + step;
-                rocketImage.style.right= x + "px";
-            break;
-
-            case "right":
-                console.log("testing right");
-                var x = rocketImage.offsetLeft;
-                x = x + step;
-                rocketImage.style.left= x + "px";
-            break;
-
-        
-        }
-    }
-        upButton.addEventListener("click", moveRocket("Up"));
-        downButton.addEventListener("click", moveRocket("Down"));
-        leftButton.addEventListener("click", moveRocket("Left"));
-        rightButton.addEventListener("click", moveRocket("Right"));
+    leftButton.addEventListener("click", function() {
+        rocketImage.style.left = parseInt(rocketImage.style.left) - 10 + "px";
+    });
+    
+    rightButton.addEventListener("click", function() {
+        rocketImage.style.left = parseInt(rocketImage.style.left) + 10 + "px";
+    });
 
 
 });
