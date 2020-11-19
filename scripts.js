@@ -55,26 +55,45 @@ window.addEventListener("load", function() {
     };
         abortMissionButton.addEventListener("click", abortingMission);
 
-        function flyUp() {
-            console.log("testing");
-            rocketImage.style.bottom-margin += 10px
-        }
-            upButton.addEventListener("click", flyUp);
+    function moveRocket(str) {
+        let step = 10;
+        switch(str) {
         
-        function flyDown() {
-            //use margin-top to push down
-        }
-            downButton.addEventListener("click", flyDown);
+            case "Up":
+                console.log('testing Up');
+                var x = rocketImage.offsetBottom;
+                x = x + step;
+                rocketImage.style.bottom= x + "px";
+            break;
+
+            case "down":
+                console.log("testing down");
+                var x = rocketImage.offsetTop;
+                x = x + step;
+                rocketImage.style.top= x + "px";
+            break;
+
+            case "left":
+                console.log("testing left");
+                var x = rocketImage.offsetRight;
+                x = x + step;
+                rocketImage.style.right= x + "px";
+            break;
+
+            case "right":
+                console.log("testing right");
+                var x = rocketImage.offsetLeft;
+                x = x + step;
+                rocketImage.style.left= x + "px";
+            break;
+
         
-        function flyLeft() {
-            //use margin-right to push left
         }
-            leftButton.addEventListener("click", flyLeft);
-    
-        function flyRight() {
-            //use margin-left to push right
-        }
-            rightButton.addEventListener("click", flyRight);
+    }
+        upButton.addEventListener("click", moveRocket("Up"));
+        downButton.addEventListener("click", moveRocket("Down"));
+        leftButton.addEventListener("click", moveRocket("Left"));
+        rightButton.addEventListener("click", moveRocket("Right"));
 
 
 });
