@@ -10,6 +10,11 @@ window.addEventListener("load", function() {
         shuttleStatus = document.getElementById("flightStatus");
         shuttleBackgroundColor = document.getElementById("shuttleBackground");
         shuttleHeight = document.getElementById("spaceShuttleHeight");
+        rocketImage = document.getElementById("rocket");
+        upButton = document.getElementById("up");
+        downButton = document.getElementById("down");
+        leftButton = document.getElementById("left");
+        rightButton = document.getElementById("right");
 
     function takingOff() {
         let response = window.confirm("Confirm that the shuttle  is ready for takeoff.");
@@ -23,7 +28,6 @@ window.addEventListener("load", function() {
             shuttleHeight.innerHTML = 10000;
         }
     };
-    
         takeOffButton.addEventListener("click", takingOff);
 
     function landingHo() {
@@ -35,7 +39,6 @@ window.addEventListener("load", function() {
         //shuttle height = 0 miles;
         shuttleHeight.innerHTML = 0;
     };
-
         landButton.addEventListener("click", landingHo);
 
     function abortingMission() {
@@ -50,14 +53,28 @@ window.addEventListener("load", function() {
             shuttleHeight.innerHTML = 0;
         }
     };
-
         abortMissionButton.addEventListener("click", abortingMission);
 
-    // function flyUp()
-    // function flyDown()
-    // function flyLeft()
-    // function flyRight()
-
+        function flyUp() {
+            console.log("testing");
+            rocketImage.style.bottom-margin += 10px
+        }
+            upButton.addEventListener("click", flyUp);
+        
+        function flyDown() {
+            //use margin-top to push down
+        }
+            downButton.addEventListener("click", flyDown);
+        
+        function flyLeft() {
+            //use margin-right to push left
+        }
+            leftButton.addEventListener("click", flyLeft);
+    
+        function flyRight() {
+            //use margin-left to push right
+        }
+            rightButton.addEventListener("click", flyRight);
 
 
 });
